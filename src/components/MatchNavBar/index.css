@@ -1,0 +1,54 @@
+.navbar-container {
+  background-image: linear-gradient(to right, #2c0e3a, #2c0e3a);
+  background-size: cover;
+  height: 80px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-logo {
+  width: 120px;
+  height: 40px;
+  margin: 0px 0px 0px 20px;
+  position: relative;
+  left: 6%;
+}
+.navbar-score-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 240px;
+  position: relative;
+  right: 7%;
+}
+.navbar-score {
+  color: #ffffff;
+  font-size: 18px;
+  font-family: 'roboto';
+  font-weight: 500;
+}
+.count {
+  color: #fec653;
+  font-size: 26px;
+  font-weight: 500;
+  font-family: 'roboto';
+}
+.navbar-time-left {
+  color: #ffffff;
+  font-size: 16px;
+  font-family: 'roboto';
+  font-weight: 600;
+}
+.navbar-time-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.navbar-timer-icon {
+  width: 30px;
+  height: 30px;
+}
