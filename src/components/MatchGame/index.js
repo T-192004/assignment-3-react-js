@@ -254,16 +254,16 @@ class MatchGame extends Component {
     isGameOver: false,
   }
 
-  startTimer = () => {
-    const {timeLeft, isTimeStart} = this.state
+  componentDidMount = () => {
+    const {timeLeft} = this.state
     let count = timeLeft
     this.intervalId = setInterval(() => {
-      this.setState(prevState => ({timeLeft: prevState.timeLeft - 1}))
-      count -= 1
       console.log(count)
+      count -= 1
+      this.setState(prevState => ({timeLeft: prevState.timeLeft - 1}))
       if (count === 0) {
         clearInterval(this.intervalId)
-        this.setState({isGameOver: true, timeLeft: 0})
+        this.setState({isGameOver: true})
       }
     }, 1000)
   }
@@ -283,15 +283,21 @@ class MatchGame extends Component {
     this.setState({activeTabId: tabId})
   }
 
+  callClearInterval = () => {
+    clearInterval(this.intervalId)
+  }
+
   checkThumnailWithImage = id => {
     const {thumbnailImage} = this.state
     if (id === thumbnailImage.id) {
-      this.setState(prevState => ({score: prevState.score + 1}))
+      this.setState(prevState => ({
+        score: prevState.score + 1,
+        thumbnailImage:
+          imagesList[Math.floor(Math.random() * imagesList.length)],
+      }))
     } else {
       clearInterval(this.intervalId)
       this.setState({
-        thumbnailImage:
-          imagesList[Math.floor(Math.random() * imagesList.length)],
         isGameOver: true,
       })
     }
@@ -301,7 +307,9 @@ class MatchGame extends Component {
     const {score, timeLeft, activeTabId, isGameOver, thumbnailImage} =
       this.state
     const {tabsList} = this.props
-    this.startTimer()
+    if (timeLeft === 0) {
+      this.callClearInterval()
+    }
     const {imageUrl} = thumbnailImage
     const filteredImageList = imagesList.filter(eachImage =>
       eachImage.category.includes(activeTabId),
