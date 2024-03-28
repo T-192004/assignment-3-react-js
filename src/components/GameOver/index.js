@@ -14,7 +14,11 @@ const GameOver = props => {
       />
       <p className="title">YOUR SCORE</p>
       <h1 className="score">{score}</h1>
-      <button className="play-again-btn" onClick={onClickPlayAgainBtn}>
+      <button
+        className="play-again-btn"
+        onClick={onClickPlayAgainBtn}
+        type="button"
+      >
         <img
           className="reset-icon"
           src="https://assets.ccbp.in/frontend/react-js/match-game-play-again-img.png"
