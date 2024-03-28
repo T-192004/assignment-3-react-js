@@ -6,14 +6,14 @@
   width: 40%;
   height: 80%;
   position: relative;
-  left: 20%;
+  left: 30%;
   padding: 40px;
   border-radius: 20px;
   background-image: url('https://assets.ccbp.in/frontend/react-js/match-game-score-card-lg-bg.png');
 }
 .trophy {
-  width: 40%;
-  height: 350%;
+  width: 50%;
+  height: 35%;
 }
 .title {
   color: #ffffff;
